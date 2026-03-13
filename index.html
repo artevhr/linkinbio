@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t5ne</title>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="bgAudio" src="Analog_Angels.mp3" loop preload="auto" muted></audio>
+
+<div class="page">
+  <div class="card">
+
+    <div class="banner-bg">
+      <img src="banner.png" alt="" onerror="this.style.display='none'">
+    </div>
+
+    <div class="card-inner">
+
+      <div class="avatar">
+        <img src="avatar.png" alt="avatar" onerror="this.style.display='none'">
+      </div>
+
+      <div class="name">t5ne</div>
+
+      <div class="player-bar">
+        <button class="play-btn" id="playBtn" onclick="togglePlay()">
+          <svg id="iconPause" viewBox="0 0 10 10"><rect x="1.5" y="1" width="3" height="8"/><rect x="5.5" y="1" width="3" height="8"/></svg>
+          <svg id="iconPlay" viewBox="0 0 10 10" style="display:none"><polygon points="2,1 9,5 2,9"/></svg>
+        </button>
+        <div class="marquee-wrap">
+          <div class="marquee-track" id="marqueeTrack">
+            <span>~~~~~~~~~~~~~~</span>
+            <span>~~~~~~~~~~~~~~</span>
+            <span>~~~~~~~~~~~~~~</span>
+            <span>~~~~~~~~~~~~~~</span>
+            <span>~~~~~~~~~~~~~~</span>
+            <span>~~~~~~~~~~~~~~</span>
+            <span>~~~~~~~~~~~~~~</span>
+            <span>~~~~~~~~~~~~~~</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="links">
+
+        <a href="https://t.me/" target="_blank" class="link-btn">
+          <div class="icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="white" opacity="0.8"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          </div>
+          <span class="link-text">Telegram</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <a href="https://soundcloud.com/" target="_blank" class="link-btn">
+          <div class="icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="white" opacity="0.8"><path d="M1.175 12.225c-.017 0-.033.002-.05.003.026-.29.08-.58.165-.87a4.2 4.2 0 0 1 .468-1.028 4.32 4.32 0 0 1 .716-.87 4.19 4.19 0 0 1 .94-.64 4.07 4.07 0 0 1 1.12-.37 4.1 4.1 0 0 1 1.197-.013c.4.053.78.163 1.14.33.36.166.686.386.972.65a4.16 4.16 0 0 1 .72.95c.01-.005.02-.007.03-.012a2.38 2.38 0 0 1 .974-.205c.17 0 .34.018.504.053.165.035.323.088.473.158a2.42 2.42 0 0 1 .824.633c.113.138.21.288.287.448.077.16.133.328.165.502.033.174.043.35.03.525a2.43 2.43 0 0 1-.115.513H1.945a.77.77 0 0 1-.547-.227.77.77 0 0 1-.223-.55v-.002zm20.482-1.67a3.4 3.4 0 0 0-1.283-1.006 3.42 3.42 0 0 0-1.62-.273 3.44 3.44 0 0 0-1.547.493 3.4 3.4 0 0 0-1.1 1.093 5.25 5.25 0 0 0-1.065-1.575 5.23 5.23 0 0 0-1.575-1.066 5.21 5.21 0 0 0-1.877-.448 5.24 5.24 0 0 0-1.918.27 5.22 5.22 0 0 0-1.664.968 5.25 5.25 0 0 0-1.18 1.527 5.24 5.24 0 0 0-.543 1.878 2.75 2.75 0 0 0-.977.364 2.76 2.76 0 0 0-.745.69 2.74 2.74 0 0 0-.437.943 2.75 2.75 0 0 0-.06 1.04 2.74 2.74 0 0 0 .347 1 2.75 2.75 0 0 0 .676.79 2.74 2.74 0 0 0 .924.476 2.76 2.76 0 0 0 1.04.083h14.77a3.44 3.44 0 0 0 1.35-.377 3.42 3.42 0 0 0 1.064-.87 3.4 3.4 0 0 0 .624-1.234 3.43 3.43 0 0 0 .066-1.348 3.42 3.42 0 0 0-.45-1.258z"/></svg>
+          </div>
+          <span class="link-text">SoundCloud</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <a href="https://onlyfans.com/" target="_blank" class="link-btn">
+          <div class="icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="white" opacity="0.8"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 6c3.314 0 6 2.686 6 6s-2.686 6-6 6-6-2.686-6-6 2.686-6 6-6zm0 2c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4z"/></svg>
+          </div>
+          <span class="link-text">OnlyFans</span>
+          <span style="font-size:10px; opacity:0.3; margin-right:4px;">😏</span>
+          <span class="arrow">→</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="entry-screen" id="entryScreen">
+  <div class="entry-text">click to enter</div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
