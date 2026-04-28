@@ -1,34 +1,11 @@
-* { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
+* { margin: 0; padding: 0; box-sizing: border-box; cursor: url('cursor.png') 0 0, auto; }
 
-.custom-cursor,
-.custom-cursor-pointer {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  background-size: contain;
-  background-repeat: no-repeat;
-  transition: transform 0.1s ease-out;
-}
-
-.custom-cursor {
-  width: 24px;
-  height: 24px;
-  background-image: url('cursor.png');
-}
-
-.custom-cursor-pointer {
-  width: 28px;
-  height: 28px;
-  background-image: url('cursor-pointer.png');
-  display: none;
+a, button, .link-btn, .link-btn *, .play-btn, .play-btn *, .entry-screen {
+  cursor: url('cursor-pointer.png') 5 0, pointer;
 }
 
 body {
-  cursor: none !important;
-}
-
-a, button, .link-btn, .link-btn *, .play-btn, .play-btn *, .entry-screen {
-  cursor: none !important;
+  cursor: url('cursor.png') 0 0, auto;
 }
 
 :root {
