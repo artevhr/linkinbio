@@ -1,6 +1,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; cursor: url('cursor.png') 0 0, auto; }
 
-a, button, .link-btn, .link-btn *, .play-btn, .play-btn *, .entry-screen {
+a, button, .link-btn, .link-btn *, .play-btn, .play-btn *, .entry-screen, .search-item, .search-item * {
   cursor: url('cursor-pointer.png') 5 0, pointer;
 }
 
