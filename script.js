@@ -37,8 +37,8 @@ function updateEntryCursor(e) {
     entryCursor.classList.remove('centered');
 
     // Calculate angle to center
-    const dx = centerX - x;
-    const dy = centerY - y;
+    const dx = x - centerX;
+    const dy = y - centerY;
     const angle = Math.atan2(dy, dx) * (180 / Math.PI);
     const arrowRotation = angle + 90; // +90 because arrow points down by default
 
