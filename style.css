@@ -1,6 +1,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; cursor: url('cursor.png') 0 0, auto; }
 
-a, button, .link-btn, .link-btn *, .play-btn, .play-btn *, .entry-screen, .search-item, .search-item * {
+a, button, .link-btn, .link-btn *, .play-btn, .play-btn *, .entry-screen, .search-item, .search-item *, .search-trigger, .search-trigger * {
   cursor: url('cursor-pointer.png') 5 0, pointer;
 }
 
@@ -281,6 +281,69 @@ body::before {
 @keyframes pulse {
   0%, 100% { opacity: 0.55; }
   50%       { opacity: 0.2; }
+}
+
+.search-trigger {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+  animation-delay: 0.3s;
+}
+
+.search-trigger:hover {
+  background: rgba(0, 0, 0, 0.8);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.search-trigger-icon {
+  width: 14px;
+  height: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+
+.search-trigger-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  user-select: none;
+}
+
+.search-trigger-shortcut {
+  display: flex;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.search-trigger-shortcut kbd {
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1;
+}
+
+.search-overlay.active ~ .search-trigger {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .search-overlay {

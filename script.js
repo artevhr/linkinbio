@@ -6,6 +6,7 @@ const entryScreen = document.getElementById('entryScreen');
 const searchOverlay = document.getElementById('searchOverlay');
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
+const searchTrigger = document.getElementById('searchTrigger');
 let playing = false;
 
 // Данные для поиска (здесь можно добавить свои работы)
@@ -98,6 +99,11 @@ marquee.classList.add('paused');
 
 entryScreen.addEventListener('click', enter);
 entryScreen.addEventListener('touchstart', enter, { passive: true });
+
+// Клик на поле поиска
+searchTrigger.addEventListener('click', () => {
+  openSearch();
+});
 
 // Ctrl+K или Cmd+K для открытия поиска
 const handleSearchShortcut = (e) => {
