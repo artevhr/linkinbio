@@ -301,6 +301,7 @@ body::before {
   transition: all 0.2s ease;
   animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
   animation-delay: 0.3s;
+  width: fit-content;
 }
 
 .search-trigger:hover {
