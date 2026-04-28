@@ -289,7 +289,7 @@ body::before {
   left: 50%;
   transform: translateX(-50%);
   z-index: 150;
-  display: flex;
+  display: none;
   align-items: center;
   gap: 10px;
   padding: 10px 16px;
@@ -299,16 +299,12 @@ body::before {
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.2s ease;
-  animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
-  animation-delay: 0.3s;
   width: fit-content;
-  opacity: 0;
-  pointer-events: none;
 }
 
 .search-trigger.visible {
-  opacity: 1;
-  pointer-events: auto;
+  display: flex;
+  animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
 }
 
 .search-trigger:hover {

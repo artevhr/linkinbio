@@ -137,6 +137,7 @@ document.addEventListener('keydown', handleSearchShortcut, true);
 document.addEventListener('keypress', handleSearchShortcut, true);
 document.addEventListener('keyup', (e) => {
   if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K' || e.keyCode === 75)) {
+    if (!hasEntered) return; // Блокируем до входа
     e.preventDefault();
     e.stopPropagation();
     return false;
