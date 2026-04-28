@@ -30,3 +30,12 @@ marquee.classList.add('paused');
 
 entryScreen.addEventListener('click', enter);
 entryScreen.addEventListener('touchstart', enter, { passive: true });
+
+// Check for background.gif, fallback to background.png
+fetch('background.gif', { method: 'HEAD' })
+  .then(response => {
+    if (response.ok) {
+      document.body.style.background = `var(--bg) url('background.gif') center/cover no-repeat fixed`;
+    }
+  })
+  .catch(() => {});
