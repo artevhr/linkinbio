@@ -257,6 +257,10 @@ body::before {
   cursor: none;
 }
 
+.entry-screen * {
+  cursor: none !important;
+}
+
 .entry-screen.hidden {
   opacity: 0;
   pointer-events: none;

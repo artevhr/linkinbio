@@ -24,20 +24,23 @@ function updateEntryCursor(e) {
   entryCursor.style.left = x + 'px';
   entryCursor.style.top = y + 'px';
 
-  // Calculate distance from center
-  const dx = x - centerX;
-  const dy = y - centerY;
-  const distance = Math.sqrt(dx * dx + dy * dy);
+  // Check if hovering over text
+  const textElement = document.querySelector('.entry-text');
+  const textRect = textElement.getBoundingClientRect();
+  const isOverText = x >= textRect.left && x <= textRect.right &&
+                     y >= textRect.top && y <= textRect.bottom;
 
-  // If close to center (within 50px), show circle
-  if (distance < 50) {
+  // If over text, show circle
+  if (isOverText) {
     entryCursor.classList.add('centered');
   } else {
     entryCursor.classList.remove('centered');
 
     // Calculate angle to center
+    const dx = centerX - x;
+    const dy = centerY - y;
     const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-    const arrowRotation = angle + 90; // +90 because arrow points up by default
+    const arrowRotation = angle - 90; // -90 because arrow points up by default
 
     const arrow = entryCursor.querySelector('.entry-cursor-arrow');
     arrow.style.transform = `translate(-50%, -50%) rotate(${arrowRotation}deg)`;
