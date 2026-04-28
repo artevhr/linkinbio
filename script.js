@@ -110,12 +110,13 @@ searchTrigger.addEventListener('click', () => {
 
 // Ctrl+K или Cmd+K для открытия поиска
 const handleSearchShortcut = (e) => {
+  // Блокируем ВСЕ Ctrl+K события до входа
   if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K' || e.keyCode === 75)) {
-    if (!hasEntered) return; // Блокируем до входа
-
     e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();
+
+    if (!hasEntered) return false; // Блокируем до входа
 
     if (searchOverlay.classList.contains('active')) {
       closeSearch();
