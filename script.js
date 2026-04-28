@@ -103,18 +103,23 @@ entryScreen.addEventListener('touchstart', enter, { passive: true });
 document.addEventListener('keydown', (e) => {
   if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
     e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
     if (searchOverlay.classList.contains('active')) {
       closeSearch();
     } else {
       openSearch();
     }
+
+    return false;
   }
 
   // ESC для закрытия
   if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
     closeSearch();
   }
-});
+}, true);
 
 // Клик по overlay для закрытия
 searchOverlay.addEventListener('click', (e) => {
