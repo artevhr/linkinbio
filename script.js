@@ -8,6 +8,7 @@ const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
 const searchTrigger = document.getElementById('searchTrigger');
 let playing = false;
+let hasEntered = false;
 
 // Данные для поиска (здесь можно добавить свои работы)
 const searchData = [
@@ -48,6 +49,8 @@ function enter() {
   audio.muted = false;
   audio.play().then(() => setPlaying(true)).catch(() => {});
   entryScreen.addEventListener('transitionend', () => entryScreen.remove(), { once: true });
+  hasEntered = true;
+  searchTrigger.classList.add('visible');
 }
 
 function openSearch() {
@@ -108,6 +111,8 @@ searchTrigger.addEventListener('click', () => {
 // Ctrl+K или Cmd+K для открытия поиска
 const handleSearchShortcut = (e) => {
   if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K' || e.keyCode === 75)) {
+    if (!hasEntered) return; // Блокируем до входа
+
     e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();
