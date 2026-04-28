@@ -3,12 +3,55 @@ const marquee     = document.getElementById('marqueeTrack');
 const iconPlay    = document.getElementById('iconPlay');
 const iconPause   = document.getElementById('iconPause');
 const entryScreen = document.getElementById('entryScreen');
+const entryCursor = document.getElementById('entryCursor');
 const searchOverlay = document.getElementById('searchOverlay');
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
 const searchTrigger = document.getElementById('searchTrigger');
 let playing = false;
 let hasEntered = false;
+
+// Entry screen cursor tracking
+let centerX = window.innerWidth / 2;
+let centerY = window.innerHeight / 2;
+
+function updateEntryCursor(e) {
+  if (!entryScreen || entryScreen.classList.contains('hidden')) return;
+
+  const x = e.clientX;
+  const y = e.clientY;
+
+  entryCursor.style.left = x + 'px';
+  entryCursor.style.top = y + 'px';
+
+  // Calculate distance from center
+  const dx = x - centerX;
+  const dy = y - centerY;
+  const distance = Math.sqrt(dx * dx + dy * dy);
+
+  // If close to center (within 50px), show circle
+  if (distance < 50) {
+    entryCursor.classList.add('centered');
+  } else {
+    entryCursor.classList.remove('centered');
+
+    // Calculate angle to center
+    const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+    const arrowRotation = angle + 90; // +90 because arrow points up by default
+
+    const arrow = entryCursor.querySelector('.entry-cursor-arrow');
+    arrow.style.transform = `translate(-50%, -50%) rotate(${arrowRotation}deg)`;
+  }
+}
+
+// Update center on resize
+window.addEventListener('resize', () => {
+  centerX = window.innerWidth / 2;
+  centerY = window.innerHeight / 2;
+});
+
+// Track cursor on entry screen
+document.addEventListener('mousemove', updateEntryCursor);
 
 // Данные для поиска (здесь можно добавить свои работы)
 const searchData = [
