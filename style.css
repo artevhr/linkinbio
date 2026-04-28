@@ -286,10 +286,12 @@ body::before {
 .search-trigger {
   position: fixed;
   bottom: 20px;
-  left: 50%;
+  left: 0;
+  right: 0;
   z-index: 150;
   display: none;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   padding: 10px 16px;
   background: rgba(0, 0, 0, 0.7);
@@ -299,18 +301,19 @@ body::before {
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.2s ease;
   white-space: nowrap;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .search-trigger.visible {
   display: flex;
   animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
-  transform: translateX(-50%);
 }
 
 .search-trigger:hover {
   background: rgba(0, 0, 0, 0.8);
   border-color: rgba(255, 255, 255, 0.15);
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .search-trigger-icon {
