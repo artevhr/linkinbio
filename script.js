@@ -101,7 +101,7 @@ function closeSearch() {
 
 function renderSearchResults(items) {
   if (items.length === 0) {
-    searchResults.innerHTML = '<div class="search-empty">Такого ЕЩЕ не делал</div>';
+    searchResults.innerHTML = '<div class="search-empty">Тут нету этого</div>';
     return;
   }
 
