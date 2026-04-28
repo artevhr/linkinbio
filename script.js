@@ -100,8 +100,8 @@ entryScreen.addEventListener('click', enter);
 entryScreen.addEventListener('touchstart', enter, { passive: true });
 
 // Ctrl+K или Cmd+K для открытия поиска
-document.addEventListener('keydown', (e) => {
-  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+const handleSearchShortcut = (e) => {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K' || e.keyCode === 75)) {
     e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();
@@ -117,7 +117,18 @@ document.addEventListener('keydown', (e) => {
 
   // ESC для закрытия
   if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
+    e.preventDefault();
     closeSearch();
+  }
+};
+
+document.addEventListener('keydown', handleSearchShortcut, true);
+document.addEventListener('keypress', handleSearchShortcut, true);
+document.addEventListener('keyup', (e) => {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K' || e.keyCode === 75)) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
   }
 }, true);
 
