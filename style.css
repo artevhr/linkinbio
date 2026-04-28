@@ -233,12 +233,15 @@ body::before {
 .link-text { flex: 1; }
 
 .arrow {
-  font-size: 14px;
-  opacity: 0.2;
+  color: rgba(255, 255, 255, 0.3);
   transition: opacity 0.2s, transform 0.2s;
+  flex-shrink: 0;
 }
 
-.link-btn:hover .arrow { opacity: 0.5; transform: translateX(3px); }
+.link-btn:hover .arrow {
+  color: rgba(255, 255, 255, 0.5);
+  transform: translateX(3px);
+}
 
 .entry-screen {
   position: fixed;
