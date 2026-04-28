@@ -40,7 +40,7 @@ function updateEntryCursor(e) {
     const dx = centerX - x;
     const dy = centerY - y;
     const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-    const arrowRotation = angle - 90; // -90 because arrow points up by default
+    const arrowRotation = angle + 90; // +90 because arrow points down by default
 
     const arrow = entryCursor.querySelector('.entry-cursor-arrow');
     arrow.style.transform = `translate(-50%, -50%) rotate(${arrowRotation}deg)`;
