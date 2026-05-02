@@ -311,6 +311,19 @@ body::before {
   to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
+/* Скрываем курсор на мобильных устройствах */
+@media (hover: none) and (pointer: coarse) {
+  .entry-screen {
+    cursor: auto;
+  }
+  .entry-screen * {
+    cursor: auto !important;
+  }
+  .entry-cursor {
+    display: none !important;
+  }
+}
+
 .entry-text {
   font-family: 'Unbounded', sans-serif;
   font-size: clamp(13px, 3.5vw, 17px);
