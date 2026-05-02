@@ -130,8 +130,8 @@ function handleSearch(query) {
   renderSearchResults(filtered);
 }
 
+// Audio starts only after entering
 audio.muted = true;
-audio.play().catch(() => {});
 marquee.classList.add('paused');
 
 entryScreen.addEventListener('click', enter);
